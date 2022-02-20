@@ -45,12 +45,33 @@ ERC721 : 0x2bf3a72ce029412F24145238F8cedFE5D46E0354
 - SafeMath.tryMul(uint256,uint256) (sfi__ERC721.sol#365-370) is never used and should be removed 
 - SafeMath.trySub(uint256,uint256) (sfi__ERC721.sol#360-363) is never used and should be removed Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
 
-solc-0.8.11 is not recommended for deployment Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+- solc-0.8.11 is not recommended for deployment Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
 
-Low level call in Address.sendValue(address,uint256) (sfi__ERC721.sol#282-287): - (success) = recipient.call{value: amount}() (sfi__ERC721.sol#285) Low level call in Address.functionCallWithValue(address,bytes,uint256,string) (sfi__ERC721.sol#301-307): - (success,returndata) = target.call{value: value}(data) (sfi__ERC721.sol#305) Low level call in Address.functionStaticCall(address,bytes,string) (sfi__ERC721.sol#313-318): - (success,returndata) = target.staticcall(data) (sfi__ERC721.sol#316) Low level call in Address.functionDelegateCall(address,bytes,string) (sfi__ERC721.sol#324-329): - (success,returndata) = target.delegatecall(data) (sfi__ERC721.sol#327) Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+- Low level call in Address.sendValue(address,uint256) (sfi__ERC721.sol#282-287): - (success) = recipient.call{value: amount}() (sfi__ERC721.sol#285) 
+- Low level call in Address.functionCallWithValue(address,bytes,uint256,string) (sfi__ERC721.sol#301-307): - (success,returndata) = target.call{value: value}(data) (sfi__ERC721.sol#305) 
+- Low level call in Address.functionStaticCall(address,bytes,string) (sfi__ERC721.sol#313-318): - (success,returndata) = target.staticcall(data) (sfi__ERC721.sol#316) 
+- Low level call in Address.functionDelegateCall(address,bytes,string) (sfi__ERC721.sol#324-329): - (success,returndata) = target.delegatecall(data) (sfi__ERC721.sol#327) Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
 
-Event IERC721tokenBaseURI(string) (sfi__ERC721.sol#478) is not in CapWords Parameter ERC721.safeTransferFrom(address,address,uint256,bytes)._data (sfi__ERC721.sol#730) is not in mixedCase Contract collectibleds (sfi__ERC721.sol#862-926) is not in CapWords Parameter collectibleds.setBaseURI(string)._baseURI (sfi__ERC721.sol#918) is not in mixedCase Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
 
 Redundant expression "this (sfi__ERC721.sol#533)" inContext (sfi__ERC721.sol#527-536) Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#redundant-statements
 
-supportsInterface(bytes4) should be declared external: - ERC165.supportsInterface(bytes4) (sfi__ERC721.sol#458-460) balanceOf(address) should be declared external: - ERC721.balanceOf(address) (sfi__ERC721.sol#600-603) name() should be declared external: - ERC721.name() (sfi__ERC721.sol#615-617) symbol() should be declared external: - ERC721.symbol() (sfi__ERC721.sol#619-621) tokenURI(uint256) should be declared external: - ERC721.tokenURI(uint256) (sfi__ERC721.sol#623-636) royaltyFee(uint256) should be declared external: - ERC721.royaltyFee(uint256) (sfi__ERC721.sol#642-644) getCreator(uint256) should be declared external: - ERC721.getCreator(uint256) (sfi__ERC721.sol#646-648) tokenOfOwnerByIndex(address,uint256) should be declared external: - ERC721.tokenOfOwnerByIndex(address,uint256) (sfi__ERC721.sol#650-652) totalSupply() should be declared external: - ERC721.totalSupply() (sfi__ERC721.sol#654-656) tokenByIndex(uint256) should be declared external: - ERC721.tokenByIndex(uint256) (sfi__ERC721.sol#658-661) approve(address,uint256) should be declared external: - ERC721.approve(address,uint256) (sfi__ERC721.sol#663-672) setApprovalForAll(address,bool) should be declared external: - ERC721.setApprovalForAll(address,bool) (sfi__ERC721.sol#687-692) transferFrom(address,address,uint256) should be declared external: - ERC721.transferFrom(address,address,uint256) (sfi__ERC721.sol#705-709) safeTransferFrom(address,address,uint256) should be declared external: - ERC721.safeTransferFrom(address,address,uint256) (sfi__ERC721.sol#711-713) transferOwnership(address) should be declared external: - collectibleds.transferOwnership(address) (sfi__ERC721.sol#886-891) createCollectible(string,uint256,collectibleds.Sign) should be declared external: - collectibleds.createCollectible(string,uint256,collectibleds.Sign) (sfi__ERC721.sol#907-916) setBaseURI(string) should be declared external: - collectibleds.setBaseURI(string) (sfi__ERC721.sol#918-920) burn(uint256) should be declared external: - collectibleds.burn(uint256) (sfi__ERC721.sol#922-925) Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external . analyzed (14 contracts with 77 detectors), 78 result(s) found
+supportsInterface(bytes4) should be declared external: 
+- ERC165.supportsInterface(bytes4) (sfi__ERC721.sol#458-460) balanceOf(address) should be declared external: 
+- ERC721.balanceOf(address) (sfi__ERC721.sol#600-603) name() should be declared external: 
+- ERC721.name() (sfi__ERC721.sol#615-617) symbol() should be declared external: 
+- ERC721.symbol() (sfi__ERC721.sol#619-621) tokenURI(uint256) should be declared external: 
+- ERC721.tokenURI(uint256) (sfi__ERC721.sol#623-636) royaltyFee(uint256) should be declared external: 
+- ERC721.royaltyFee(uint256) (sfi__ERC721.sol#642-644) getCreator(uint256) should be declared external: 
+- ERC721.getCreator(uint256) (sfi__ERC721.sol#646-648) tokenOfOwnerByIndex(address,uint256) should be declared external: 
+- ERC721.tokenOfOwnerByIndex(address,uint256) (sfi__ERC721.sol#650-652) totalSupply() should be declared external: 
+- ERC721.totalSupply() (sfi__ERC721.sol#654-656) tokenByIndex(uint256) should be declared external: 
+- ERC721.tokenByIndex(uint256) (sfi__ERC721.sol#658-661) approve(address,uint256) should be declared external: 
+- ERC721.approve(address,uint256) (sfi__ERC721.sol#663-672) setApprovalForAll(address,bool) should be declared external: 
+- ERC721.setApprovalForAll(address,bool) (sfi__ERC721.sol#687-692) transferFrom(address,address,uint256) should be declared external: 
+- ERC721.transferFrom(address,address,uint256) (sfi__ERC721.sol#705-709) safeTransferFrom(address,address,uint256) should be declared external: 
+- ERC721.safeTransferFrom(address,address,uint256) (sfi__ERC721.sol#711-713) transferOwnership(address) should be declared external: 
+- collectibleds.transferOwnership(address) (sfi__ERC721.sol#886-891) createCollectible(string,uint256,collectibleds.Sign) should be declared external: 
+- collectibleds.createCollectible(string,uint256,collectibleds.Sign) (sfi__ERC721.sol#907-916) setBaseURI(string) should be declared external: 
+- collectibleds.setBaseURI(string) (sfi__ERC721.sol#918-920) burn(uint256) should be declared external: - collectibleds.burn(uint256) (sfi__ERC721.sol#922-925) Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external . 
+
+- Analyzed (14 contracts with 77 detectors), 78 result(s) found
