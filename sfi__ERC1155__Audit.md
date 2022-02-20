@@ -9,7 +9,6 @@ ERC1155 : 0x8704F5D561C5Da161A77297fd0A9a156ed427793
 - ERC1155._doSafeTransferAcceptanceCheck(address,address,address,uint256,uint256,bytes) (sfi__ERC1155__001.sol#881-902) ignores return value by IERC1155Receiver(to).onERC1155Received(operator,from,tokenId,amount,data) (sfi__ERC1155__001.sol#892-900)
 - ERC1155._doSafeBatchTransferAcceptanceCheck(address,address,address,uint256[],uint256[],bytes) (sfi__ERC1155__001.sol#904-925) ignores return value by IERC1155Receiver(to).onERC1155BatchReceived(operator,from,tokenIds,amounts,data) (sfi__ERC1155__001.sol#915-923) Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
 
-collectibledm.constructor(string,string).name (sfi__ERC1155__001.sol#949) shadows: - ERC1155.name() (sfi__ERC1155__001.sol#528-530) (function) - IERC1155.name() (sfi__ERC1155__001.sol#297) (function) collectibledm.constructor(string,string).symbol (sfi__ERC1155__001.sol#949) shadows: - ERC1155.symbol() (sfi__ERC1155__001.sol#532-534) (function) - IERC1155.symbol() (sfi__ERC1155__001.sol#298) (function) collectibledm.verifySign(string,address,collectibledm.Sign).tokenURI (sfi__ERC1155__001.sol#976) shadows: - ERC1155.tokenURI(uint256) (sfi__ERC1155__001.sol#583-595) (function) - IERC1155.tokenURI(uint256) (sfi__ERC1155__001.sol#302) (function) Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
 
 Variable 'ERC1155._doSafeTransferAcceptanceCheck(address,address,address,uint256,uint256,bytes).response (sfi__ERC1155__001.sol#892)' in ERC1155._doSafeTransferAcceptanceCheck(address,address,address,uint256,uint256,bytes) (sfi__ERC1155__001.sol#881-902) potentially used before declaration: response != IERC1155Receiver(to).onERC1155Received.selector (sfi__ERC1155__001.sol#893) 
 
@@ -26,10 +25,13 @@ Address.isContract(address) (sfi__ERC1155__001.sol#442-446) uses assembly - INLI
 - Address.functionCall(address,bytes,string) (sfi__ERC1155__001.sol#459-461) is never used and should be removed 
 - Address.functionCallWithValue(address,bytes,uint256) (sfi__ERC1155__001.sol#463-465) is never used and should be removed
 - Address.functionCallWithValue(address,bytes,uint256,string) (sfi__ERC1155__001.sol#467-470) is never used and should be removed 
-- Address.sendValue(address,uint256) (sfi__ERC1155__001.sol#448-453) is never used and should be removed Context._msgData() (sfi__ERC1155__001.sol#340-343) is never used and should be removed ERC1155._mintBatch(address,uint256[],uint256[],bytes) (sfi__ERC1155__001.sol#801-816) is never used and should be removed
+- Address.sendValue(address,uint256) (sfi__ERC1155__001.sol#448-453) is never used and should be removed 
+- Context._msgData() (sfi__ERC1155__001.sol#340-343) is never used and should be removed 
+- ERC1155._mintBatch(address,uint256[],uint256[],bytes) (sfi__ERC1155__001.sol#801-816) is never used and should be removed
 - EnumerableMap._at(EnumerableMap.Map,uint256) (sfi__ERC1155__001.sol#87-92) is never used and should be removed 
 - EnumerableMap._get(EnumerableMap.Map,bytes32) (sfi__ERC1155__001.sol#100-104) is never used and should be removed
-- EnumerableMap._get(EnumerableMap.Map,bytes32,string) (sfi__ERC1155__001.sol#106-110) is never used and should be removed EnumerableMap._length(EnumerableMap.Map) (sfi__ERC1155__001.sol#83-85) is never used and should be removed 
+- EnumerableMap._get(EnumerableMap.Map,bytes32,string) (sfi__ERC1155__001.sol#106-110) is never used and should be removed 
+- EnumerableMap._length(EnumerableMap.Map) (sfi__ERC1155__001.sol#83-85) is never used and should be removed 
 - EnumerableMap._remove(EnumerableMap.Map,bytes32) (sfi__ERC1155__001.sol#58-77) is never used and should be removed
 - EnumerableMap._tryGet(EnumerableMap.Map,bytes32) (sfi__ERC1155__001.sol#94-98) is never used and should be removed
 - EnumerableMap.at(EnumerableMap.UintToAddressMap,uint256) (sfi__ERC1155__001.sol#132-135) is never used and should be removed
@@ -73,4 +75,22 @@ Event IERC1155tokenBaseURI(string) (sfi__ERC1155__001.sol#294) is not in CapWord
 
 Redundant expression "this (sfi__ERC1155__001.sol#341)" inContext (sfi__ERC1155__001.sol#335-344) Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#redundant-statements
 
-supportsInterface(bytes4) should be declared external: - ERC165.supportsInterface(bytes4) (sfi__ERC1155__001.sol#354-356) name() should be declared external: - ERC1155.name() (sfi__ERC1155__001.sol#528-530) symbol() should be declared external: - ERC1155.symbol() (sfi__ERC1155__001.sol#532-534) royaltyFee(uint256) should be declared external: - ERC1155.royaltyFee(uint256) (sfi__ERC1155__001.sol#553-555) getCreator(uint256) should be declared external: - ERC1155.getCreator(uint256) (sfi__ERC1155__001.sol#563-565) tokenURI(uint256) should be declared external: - ERC1155.tokenURI(uint256) (sfi__ERC1155__001.sol#583-595) balanceOf(address,uint256) should be declared external: - ERC1155.balanceOf(address,uint256) (sfi__ERC1155__001.sol#608-612) balanceOfBatch(address[],uint256[]) should be declared external: - ERC1155.balanceOfBatch(address[],uint256[]) (sfi__ERC1155__001.sol#622-641) setApprovalForAll(address,bool) should be declared external: - ERC1155.setApprovalForAll(address,bool) (sfi__ERC1155__001.sol#650-655) safeTransferFrom(address,address,uint256,uint256,bytes) should be declared external: - ERC1155.safeTransferFrom(address,address,uint256,uint256,bytes) (sfi__ERC1155__001.sol#683-710) safeBatchTransferFrom(address,address,uint256[],uint256[],bytes) should be declared external: - ERC1155.safeBatchTransferFrom(address,address,uint256[],uint256[],bytes) (sfi__ERC1155__001.sol#729-765) transferOwnership(address) should be declared external: - collectibledm.transferOwnership(address) (sfi__ERC1155__001.sol#961-966) mint(string,uint256,uint256,collectibledm.Sign) should be declared external: - collectibledm.mint(string,uint256,uint256,collectibledm.Sign) (sfi__ERC1155__001.sol#981-987) setBaseURI(string) should be declared external: - collectibledm.setBaseURI(string) (sfi__ERC1155__001.sol#989-991) burn(uint256,uint256) should be declared external: - collectibledm.burn(uint256,uint256) (sfi__ERC1155__001.sol#993-995) burnBatch(uint256[],uint256[]) should be declared external: - collectibledm.burnBatch(uint256[],uint256[]) (sfi__ERC1155__001.sol#997-999) Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external . analyzed (13 contracts with 77 detectors), 85 result(s) found
+supportsInterface(bytes4) should be declared external: - ERC165.supportsInterface(bytes4) (sfi__ERC1155__001.sol#354-356) name() should be declared external: 
+- ERC1155.name() (sfi__ERC1155__001.sol#528-530) symbol() should be declared external: 
+- ERC1155.symbol() (sfi__ERC1155__001.sol#532-534) royaltyFee(uint256) should be declared external: 
+- ERC1155.royaltyFee(uint256) (sfi__ERC1155__001.sol#553-555) getCreator(uint256) should be declared external: 
+- ERC1155.getCreator(uint256) (sfi__ERC1155__001.sol#563-565) tokenURI(uint256) should be declared external: 
+- ERC1155.tokenURI(uint256) (sfi__ERC1155__001.sol#583-595) balanceOf(address,uint256) should be declared external: 
+- ERC1155.balanceOf(address,uint256) (sfi__ERC1155__001.sol#608-612) balanceOfBatch(address[],uint256[]) should be declared external: 
+- ERC1155.balanceOfBatch(address[],uint256[]) (sfi__ERC1155__001.sol#622-641) setApprovalForAll(address,bool) should be declared external: 
+- ERC1155.setApprovalForAll(address,bool) (sfi__ERC1155__001.sol#650-655) safeTransferFrom(address,address,uint256,uint256,bytes) should be declared external: 
+- ERC1155.safeTransferFrom(address,address,uint256,uint256,bytes) (sfi__ERC1155__001.sol#683-710) safeBatchTransferFrom(address,address,uint256[],uint256[],bytes) should be declared external: 
+- ERC1155.safeBatchTransferFrom(address,address,uint256[],uint256[],bytes) (sfi__ERC1155__001.sol#729-765) transferOwnership(address) should be declared external: -
+- collectibledm.transferOwnership(address) (sfi__ERC1155__001.sol#961-966) mint(string,uint256,uint256,collectibledm.Sign) should be declared external:
+- collectibledm.mint(string,uint256,uint256,collectibledm.Sign) (sfi__ERC1155__001.sol#981-987) setBaseURI(string) should be declared external: 
+- collectibledm.setBaseURI(string) (sfi__ERC1155__001.sol#989-991) burn(uint256,uint256) should be declared external: 
+- collectibledm.burn(uint256,uint256) (sfi__ERC1155__001.sol#993-995) burnBatch(uint256[],uint256[]) should be declared external: 
+- collectibledm.burnBatch(uint256[],uint256[]) (sfi__ERC1155__001.sol#997-999) 
+- Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external . 
+
+- analyzed (13 contracts with 77 detectors), 85 result(s) found
